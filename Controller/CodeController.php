@@ -25,7 +25,7 @@ class CodeController extends AppController {
             #   if($pl['id'] == "74"){
             #     $version_up = $pl['version'];
             #   }
-            }
+            #}
             $isUpdateAvaible = false;
             #if($version_install != $version_up){
             #   $isUpdateAvaible = true;
