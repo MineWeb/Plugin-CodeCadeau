@@ -16,18 +16,20 @@ class CodeController extends AppController {
             $version_install = $plugins->{'empiredev.codecadeau.74'}->{'version'};
 
             //VERIF_VERSION_MARKET
-            $version_up = null;
-            $json = file_get_contents('http://api.mineweb.org/api/v2/plugin/all');
-            $json = json_decode($json, true);
-            foreach($json as $pl){
-               if($pl['id'] == "74"){
-                 $version_up = $pl['version'];
-               }
-            }
+            #Suppression de l'api mineweb car elle a été supprimé. Pour le moment pas de vérification de mise à jour.
+            #Ancien code avec l'api mineweb :
+            #$version_up = null;
+            #$json = file_get_contents('http://api.mineweb.org/api/v2/plugin/all');
+            #$json = json_decode($json, true);
+            #foreach($json as $pl){
+            #   if($pl['id'] == "74"){
+            #     $version_up = $pl['version'];
+            #   }
+            #}
             $isUpdateAvaible = false;
-            if($version_install != $version_up){
-               $isUpdateAvaible = true;
-            }
+            #if($version_install != $version_up){
+            #   $isUpdateAvaible = true;
+            #}
             $this->set(compact('isUpdateAvaible'));
 
             $this->set(compact("codes"));
@@ -35,7 +37,7 @@ class CodeController extends AppController {
         else
             throw new ForbiddenException();
     }
-
+    
     public function admin_add_code(){
         $this->layout = 'admin';
         $this->autoRender = false;
